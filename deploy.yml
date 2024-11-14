@@ -10,7 +10,7 @@
         mode: "0755"
 
     - name: Copy File to /var/www/html
-      command: cp project.tar.gz /var/www/project
+      command: cp -f project.tar.gz /var/www/project
 
     - name: Extract File
-      command: tar -xzvf /var/www/project/project.tar.gz
+      command: tar --overwrite -xzvf /var/www/project/project.tar.gz
