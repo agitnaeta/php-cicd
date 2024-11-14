@@ -15,8 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Install php
-        run: apt install php8.2
+      - name: Set up PHP 8.2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
 
       - uses: actions/checkout@v4
 
@@ -43,4 +45,3 @@ jobs:
         with:
           name: project
           path: ./project.tar.gz
-
