@@ -1,3 +1,3 @@
 #!/bin/bash
-apt install ansible
+sudo apt install ansible
 ansible-paybook deploy.yml 

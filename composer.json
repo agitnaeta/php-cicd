@@ -3,7 +3,7 @@
     "description": "Training CI/CD",
     "require": {
         "nesbot/carbon": "^3.8",
-        "php": "^8.0"
+        "php": "~8.1"
     },
     "license": "MIT"
 }
