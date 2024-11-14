@@ -3,7 +3,7 @@
         'name' => 'agitnaeta/training-ci-cd',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b855c50ef4e8e60f0e1d865e6b66c2a9de72dd10',
+        'reference' => 'a99652a1633b47f9721cc7b5282fab499b497ef0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'agitnaeta/training-ci-cd' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b855c50ef4e8e60f0e1d865e6b66c2a9de72dd10',
+            'reference' => 'a99652a1633b47f9721cc7b5282fab499b497ef0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
