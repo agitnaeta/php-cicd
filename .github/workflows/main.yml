@@ -38,7 +38,8 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Compress project file
-        run: ls -lath
+        run: tar -czvf ./project.tar.gz ./vendor ./composer.json ./composer.lock ./index.php
+
 
       - name: Upload project file
         uses: actions/upload-artifact@v3
