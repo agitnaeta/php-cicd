@@ -40,9 +40,28 @@ jobs:
       - name: Compress project file
         run: tar -czvf ./project.tar.gz ./vendor ./composer.json ./composer.lock ./index.php
 
-
       - name: Upload project file
         uses: actions/upload-artifact@v3
         with:
           name: project
           path: ./project.tar.gz
+          
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.ID_RSA_PRIVATE }}
+          known_hosts: ${{ secrets.HOST_IP }}
+
+      - name: SSH Keyscan
+        run: |
+          ssh-keyscan -p 80 -H ${{ secrets.HOST_IP }}  >> ~/.ssh/known_hosts  
+      
+      - name: Running Task
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_IP }}
+          username: ${{ secrets.HOST_USER }}
+          port: 22
+          password: ${{ secrets.HOST_PASSWORD }}
+          script: |
+            ls -lath
