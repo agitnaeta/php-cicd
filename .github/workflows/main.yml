@@ -2,16 +2,15 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +44,7 @@ jobs:
         with:
           name: project
           path: ./project.tar.gz
-          
+
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
@@ -54,8 +53,8 @@ jobs:
 
       - name: SSH Keyscan
         run: |
-          ssh-keyscan -p 80 -H ${{ secrets.HOST_IP }}  >> ~/.ssh/known_hosts  
-      
+          ssh-keyscan -p 22 -H ${{ secrets.HOST_IP }}  >> ~/.ssh/known_hosts
+
       - name: Running Task
         uses: appleboy/ssh-action@master
         with:
