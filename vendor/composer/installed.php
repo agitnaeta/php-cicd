@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => '__root__',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'name' => 'agitnaeta/training-ci-cd',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'b855c50ef4e8e60f0e1d865e6b66c2a9de72dd10',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        '__root__' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+        'agitnaeta/training-ci-cd' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'b855c50ef4e8e60f0e1d865e6b66c2a9de72dd10',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

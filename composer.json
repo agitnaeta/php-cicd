@@ -1,4 +1,6 @@
 {
+    "name": "agitnaeta/training-ci-cd",
+    "description": "Training CI/CD",
     "require": {
         "nesbot/carbon": "^3.8"
     }
