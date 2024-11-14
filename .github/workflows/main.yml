@@ -55,6 +55,8 @@ jobs:
         run: |
           ssh-keyscan -p 22 -H ${{ secrets.HOST_IP }}  >> ~/.ssh/known_hosts
 
-      - name: Login ssh
+      - name: Create Pub Key
         run: |
+          echo "${{ secrets.ID_PUB_KEY }}" >> github.pub 
+          ssh-copy-id -i github.pub ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
           ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
