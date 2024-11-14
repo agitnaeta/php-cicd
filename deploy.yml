@@ -1,0 +1,10 @@
+---
+- name: List files in a directory on the target host
+  hosts: all
+  become: true # Set to true if you need sudo privileges
+  tasks:
+    - name: Copy File to /var/www/html
+      command: mv project.tar.gz /var/www/html
+
+    - name: Extract File
+      command: tar -xzf /var/www/project.tar.gz

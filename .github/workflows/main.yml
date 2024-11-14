@@ -52,4 +52,10 @@ jobs:
 
       - name: Copy file
         run: |
+          scp -i ~/.ssh/github ./bash.sh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}:/home/${{ secrets.HOST_USERNAME }}
+          scp -i ~/.ssh/github ./deploy.yml ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}:/home/${{ secrets.HOST_USERNAME }}
           scp -i ~/.ssh/github ./project.tar.gz ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}:/home/${{ secrets.HOST_USERNAME }}
+
+      - name: run Ansible
+        run: |
+          ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }} 'bash -s < bash.sh
