@@ -39,15 +39,10 @@ jobs:
       - name: Compress project file
         run: tar -czvf ./project.tar.gz ./vendor ./composer.json ./composer.lock ./index.php
 
-      - name: Upload project file
-        uses: actions/upload-artifact@v3
-        with:
-          name: project
-          path: ./project.tar.gz
-
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
+          name: github
           key: ${{ secrets.ID_RSA_PRIVATE }}
           known_hosts: ${{ secrets.HOST_IP }}
 
@@ -57,7 +52,6 @@ jobs:
 
       - name: Create Pub Key
         run: |
-          echo "${{ secrets.ID_PUB_KEY }}" >> github.pub
-          ls -lath 
-          ssh-copy-id -i github.pub ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
+          ls -lath ~/.ssh/
+          ssh-copy-id -i ~/.ssh/github ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
           ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
