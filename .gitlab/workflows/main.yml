@@ -32,3 +32,12 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
+      - name: Compress project file
+        run: tar -czvf ./project.tar.gz ./
+
+      - name: Upload project file
+        uses: actions/upload-artifact@v3
+        with:
+          name: project
+          path: ./project.tar.gz
+

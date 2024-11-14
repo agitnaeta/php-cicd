@@ -3,5 +3,6 @@
     "description": "Training CI/CD",
     "require": {
         "nesbot/carbon": "^3.8"
-    }
+    },
+    "license": "MIT"
 }
