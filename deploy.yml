@@ -1,26 +1,33 @@
 ---
-- name: List files in a directory on the target host
+- name: Update and extract file
   hosts: localhost
-  become: true # Set to true if you need sudo privileges
+  become: true # Use sudo privileges if required
   tasks:
-    - name: "Remove Old Folder"
+    - name: Remove old folder
       ansible.builtin.file:
         path: /var/www/project
         state: absent
 
-    - name: Create a folder if it does not exist
+    - name: Create a new folder
       ansible.builtin.file:
         path: /var/www/project
         state: directory
         mode: "0755"
 
-    - name: Copy File to /var/www/html
-      command: cp -f project.tar.gz /var/www/project
+    - name: Copy tar.gz file to the project directory
+      ansible.builtin.copy:
+        src: project.tar.gz
+        dest: /var/www/project/project.tar.gz
+        mode: "0644"
 
-    - name: Extract File
-      command: tar --overwrite -xzvf /var/www/project/project.tar.gz
+    - name: Extract the tar.gz file
+      ansible.builtin.unarchive:
+        src: /var/www/project/project.tar.gz
+        dest: /var/www/project/
+        remote_src: yes
+        extra_opts: [--overwrite]
 
-    - name: "Remove file"
+    - name: Remove the tar.gz file after extraction
       ansible.builtin.file:
-        path: var/www/project/project.tar.gz
+        path: /var/www/project/project.tar.gz
         state: absent
