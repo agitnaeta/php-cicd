@@ -3,6 +3,11 @@
   hosts: localhost
   become: true # Set to true if you need sudo privileges
   tasks:
+    - name: "Remove Old Folder"
+      ansible.builtin.file:
+        path: /var/www/project
+        state: absent
+
     - name: Create a folder if it does not exist
       ansible.builtin.file:
         path: /var/www/project
@@ -14,3 +19,8 @@
 
     - name: Extract File
       command: tar --overwrite -xzvf /var/www/project/project.tar.gz
+
+    - name: "Remove file"
+      ansible.builtin.file:
+        path: var/www/project/project.tar.gz
+        state: absent
