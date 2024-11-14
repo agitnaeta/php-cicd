@@ -50,9 +50,6 @@ jobs:
         run: |
           ssh-keyscan -p 22 -H ${{ secrets.HOST_IP }}  >> ~/.ssh/known_hosts
 
-      - name: Create Pub Key
+      - name: Copy file
         run: |
-          echo "${{ secrets.ID_PUB_KEY }}" >> ~/.ssh/github.pub
-          ls -lath ~/.ssh/
-          ssh-copy-id -i ~/.ssh/github ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
-          ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
+          scp ./project.tar.gz ${{ secrets.HOST_USERNAME }}:@${{ secrets.HOST_IP }}
