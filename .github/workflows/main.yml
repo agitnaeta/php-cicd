@@ -58,4 +58,4 @@ jobs:
 
       - name: run Ansible
         run: |
-          ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }} 'bash -s < bash.sh'
+          ssh -i ~/.ssh/github  ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }} 'bash -s < bash.sh'
