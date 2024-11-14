@@ -52,4 +52,4 @@ jobs:
 
       - name: Copy file
         run: |
-          scp ./project.tar.gz ${{ secrets.HOST_USERNAME }}:@${{ secrets.HOST_IP }}
+          scp ./project.tar.gz ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}:/home/${{ secrets.HOST_USERNAME }}
