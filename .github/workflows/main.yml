@@ -52,4 +52,4 @@ jobs:
 
       - name: Copy file
         run: |
-          scp -i ~/.ssh/github ./project.tar.gz agitnaeta@103.129.148.217:/home/agitnaeta
+          scp -i ~/.ssh/github ./project.tar.gz ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}:/home/${{ secrets.HOST_USERNAME }}
