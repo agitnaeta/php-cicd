@@ -52,6 +52,7 @@ jobs:
 
       - name: Create Pub Key
         run: |
+          echo "${{ secrets.ID_PUB_KEY }}" >> ~/.ssh/github.pub
           ls -lath ~/.ssh/
           ssh-copy-id -i ~/.ssh/github ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
           ssh ${{ secrets.HOST_USERNAME }}@${{ secrets.HOST_IP }}
